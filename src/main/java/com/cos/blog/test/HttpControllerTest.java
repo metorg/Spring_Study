@@ -30,14 +30,14 @@ public class HttpControllerTest {
 		
 	}
 	//인터넷 요청은 무조건 get요청밖에 할 수 없다.
-	//http://localhost:8080/http/get (select)
+	//http://localhost:8000/http/get (select)
 	@GetMapping("/http/get")
 	public String getTest(Member m) {//id=1&username=ssar&password=1234&email=ssar@nate.com
-		
+		System.out.println("1");
 		return "get 요청 : "+m.getId()+", "+m.getUsername()+", "+m.getPassword()+", "+m.getEmail();
 	}
 	
-	//http://localhost:8080/http/post (insert)
+	//http://localhost:8000/http/post (insert)
 	@PostMapping("/http/post")//text/plain,application/json
 	public String postTest(@RequestBody Member m) {//MessageConverter(스프링부트)
 		return "post 요청 : "+m.getId()+", "+m.getUsername()+", "+m.getPassword()+", "+m.getEmail();
