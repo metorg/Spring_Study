@@ -57,8 +57,11 @@ public class IndexController {
         //뷰리졸버 설정 : templates(prefix) mustach(suffix) yml에 안넣어도 의존성에 미리 삽입되어있어서
         return "index";
     }
+    //OAuth 로그인을 해도 PrincipalDetails
+    //일반 로그인을 해도 PrincipalDetails
     @GetMapping("/user")
-    public @ResponseBody String user(){
+    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principalDetails){
+        System.out.println("principalDetails:"+principalDetails.getUser());
         return "user";
     }
 
